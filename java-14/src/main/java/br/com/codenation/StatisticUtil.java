@@ -29,6 +29,18 @@ public class StatisticUtil {
 	}
 
 	public static int median(int[] elements) {
-		return 0;
+		Arrays.sort(elements);
+		int lngt = elements.length;
+		int myMedian = 0;
+		if (lngt % 2 != 0) {
+			int indexOfMedian = (lngt/2);
+			myMedian = elements[indexOfMedian];
+		}else{
+			int indexA = lngt/2;
+			int indexB = (lngt/2 - 1);
+			myMedian = ((elements[indexA] + elements[indexB]) / 2);
+		}
+
+		return myMedian;
 	}
 }
