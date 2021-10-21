@@ -149,7 +149,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	public List<Long> buscarTopJogadores(Integer top) {
-		throw new UnsupportedOperationException();
+		return jogadores.buscarTopJogadores(top);
 	}
 
 }

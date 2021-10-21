@@ -3,10 +3,7 @@ package br.com.codenation.jogador;
 import br.com.codenation.exceptions.JogadorNaoEncontradoException;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class RepositorioJogadores {
 
@@ -53,4 +50,22 @@ public class RepositorioJogadores {
         return salarioDoJogador;
     }
 
+    public List<Long> buscarTopJogadores(Integer top) {
+        List<Long> topJogadores = new ArrayList<>();
+        if (jogadores.isEmpty()) {
+        }else{
+            Collections.sort(jogadores, new Comparator<Jogador>() {
+                @Override
+                public int compare(Jogador o1, Jogador o2) {
+                    return o2.getNivelHabilidade().compareTo(o1.getNivelHabilidade());
+                }
+            });
+            for (Jogador j: jogadores) {
+                if (topJogadores.size() < top) {
+                    topJogadores.add(j.getId());
+                }
+            }
+        }
+        return topJogadores;
+    }
 }

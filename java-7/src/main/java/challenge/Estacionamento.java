@@ -3,9 +3,6 @@ package challenge;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.lang.NullPointerException;
-import java.lang.IllegalArgumentException;
-
 public class Estacionamento {
 
     List<Carro> carrosEstacionados = new ArrayList<>();
@@ -17,10 +14,10 @@ public class Estacionamento {
         if (carro.getMotorista().getPontos() > 20 || carro.getMotorista().getIdade() < 18) {
           throw new EstacionamentoException("menor de idade ou carteira suspensa");
         }
-        List<Integer> allAges = new ArrayList();
-        carrosEstacionados.forEach(c -> {
-          allAges.add(c.getMotorista().getIdade());
-        });
+        List<Integer> allAges = new ArrayList<>();
+        for (Carro c: carrosEstacionados) {
+            allAges.add(c.getMotorista().getIdade());
+        }
         int minAge = 56;
         for (int idade: allAges) {
           if (idade < minAge) {
@@ -46,6 +43,6 @@ public class Estacionamento {
     }
 
     public boolean carroEstacionado(Carro carro) {
-        return true;
+        return carrosEstacionados.contains(carro);
     }
 }
