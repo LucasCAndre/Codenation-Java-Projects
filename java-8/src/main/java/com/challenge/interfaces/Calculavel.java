@@ -1,11 +1,13 @@
 package com.challenge.interfaces;
 
+import java.math.BigDecimal;
+
 public interface Calculavel {
 
-    public void Somar();
+    public BigDecimal Somar(Class cl);
 
-    public void Subtrair();
+    public BigDecimal Subtrair(Class cl);
 
-    public void Totalizar();
+    public BigDecimal Totalizar(Class cl);
 
 }
