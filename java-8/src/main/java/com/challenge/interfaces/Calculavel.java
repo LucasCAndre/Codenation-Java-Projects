@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public interface Calculavel {
 
-    public BigDecimal Somar(Class cl);
+    public BigDecimal somar(Object cl) throws IllegalAccessException;
 
-    public BigDecimal Subtrair(Class cl);
+    public BigDecimal subtrair(Object cl) throws IllegalAccessException;
 
-    public BigDecimal Totalizar(Class cl);
+    public BigDecimal totalizar(Object cl) throws IllegalAccessException;
 
 }
